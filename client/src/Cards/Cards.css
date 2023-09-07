@@ -1,0 +1,22 @@
+.boxPrincipa{
+  /* background-color: chocolate; */
+   width: 65%;
+   height: 50rem;
+   margin-left: 25rem;
+   margin-top: 7em;
+}
+.botonNext{
+   width: 40px;
+   height: 25px;
+   margin-right: 5px;
+
+}
+.botonBack{
+   width: 40px;
+   height: 25px;
+ margin-left: 5px;
+}
+.marcadorpage{
+ width: 40px;
+   height: 25px;
+}

@@ -1,0 +1,50 @@
+.conteinerPrincipal {
+  
+    /* background-color: rgb(94, 150, 163);  */
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+   justify-content: center;
+   width: 15rem;
+   height: 15rem;
+   display: inline-block;
+   margin-right: 17px;
+   margin-bottom: 20px;
+   
+  
+}
+
+
+.conteinerCard {
+   border-radius: 15px;
+   backdrop-filter: blur(15px);
+   /* background-color: aquamarine; */
+ 
+   align-items: center;
+   width: 35vh;
+   margin-top: 15px;
+   margin-left: 8px;
+ text-align: center;
+ 
+   
+}
+
+.imagenes {
+   max-width:35vh ;
+   max-height:25vh ;
+   margin-top: 5px;
+
+   
+   
+}
+.titleTeams{
+   font-size: 10px;
+   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+   color: aliceblue;
+}
+.h4{
+   font-size: 15px;
+   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+   color: aliceblue;
+}

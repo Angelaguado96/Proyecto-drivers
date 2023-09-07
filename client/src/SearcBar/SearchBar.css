@@ -1,0 +1,12 @@
+.botoBuscar{
+   border-radius: 15px;
+   width: 9em;
+   height: 2em;
+   cursor: pointer;
+
+}
+.imputBuscar{
+   width: 15em;
+   height: 2em;
+   border-radius: 15px;
+}
