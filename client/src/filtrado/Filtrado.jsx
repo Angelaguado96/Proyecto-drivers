@@ -46,17 +46,20 @@ const Filtrado = () => {
   
 
   return (
-    <div>
-      <p className='titlePrincipla'>ORIGEN BD/API</p>
-      <div>
-       
-        <button  onClick={buscarAp} >API</button>
-        <button  onClick={buscarDB}>DB</button>  
+    <div className='boxxxxxx'>
+
+      <div className='boxs'>
+      <p className='titlePrincipla'>BD/API</p>
+      <div className='boxDeOrigen'>
+
+        <button className='api' onClick={buscarAp} >API</button>
+        <button   className = 'api'onClick={buscarDB}>DB</button>  
+      </div>
       
       </div>
 
+      <div className='boxs'>
       <p className='titlePrincipla'> TEAMS </p>
-      <div>
         <select onChange={halderFilterTeams}  className='boxSelect' >
            <option  > TEAMS</option>
 
@@ -70,8 +73,8 @@ const Filtrado = () => {
 
         </select>
       </div>
+      <div className='boxs'>
       <p className='titlePrincipla'> ORDENAMINETO ALFABETICAMENTE </p>
-      <div>
         <select className='boxSelect' onChange={handlerOrder}>
 
           <option  >ORDENALOS POR : </option>
@@ -80,8 +83,8 @@ const Filtrado = () => {
         </select>
       </div>
 
+      <div className='boxs'>
       <p className='titlePrincipla'> POR NUMERO DE ORDEN </p>
-      <div>
         <select className='boxSelect' onChange={handlerNumeroOrder}>
           <option  >ORDENALOS POR : </option>
           <option value="P" >Primero</option>
@@ -89,8 +92,8 @@ const Filtrado = () => {
         </select>
       </div>
 
+      <div className='boxs'>
       <p className='titlePrincipla'> POR FECHA DE NACIMIENTO </p>
-      <div>
         <select onChange={handlerFilterFecha} >
           <option  >ORDENALOS POR : </option>
           <option className='boxSelect' value="M" >Mayores</option>

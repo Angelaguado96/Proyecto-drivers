@@ -21,13 +21,16 @@
 }
 .boxMenu{
    /* backdrop-filter:blur(15px); */
-   background-color: rgb(47, 44, 44);
+   background-color: dimgrey;
     border-radius: 15px;
     height: 60rem;
     width: 21rem;
     
 
 }
-.y{
-    width: 50px;
+
+.bovv{
+    background-color: rgb(205, 13, 13);
+    width: 100%;
+    
 }

@@ -5,7 +5,7 @@ const PORT = 3002;
 const {pedidoTeams}=require('./src/controllers/TeamsControler')
 
 
-conn.sync({ force: true}).then(async () => {
+conn.sync({ force: false}).then(async () => {
   await pedidoTeams();
 server.listen(PORT, () => {
  

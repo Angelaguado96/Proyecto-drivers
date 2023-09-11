@@ -1,0 +1,11 @@
+[
+   {
+     "comment": "Comentario 1",
+     "image": "ruta/a/imagen1.jpg"
+   },
+   {
+     "comment": "Comentario 2",
+     "image": "ruta/a/imagen2.jpg"
+   }
+   
+ ]

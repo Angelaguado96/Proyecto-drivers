@@ -1,13 +1,26 @@
-import { ADD_DRIVERS, SEARCH_DRIVER_NAME, ORDER_ALFABETICAMENTE, FILTRADO_FECHA, ORDEN_NUMERO, TEAMS,FILTRADO_TEAMS,API,BD} from './action';
+import {
+   ADD_DRIVERS,
+   SEARCH_DRIVER_NAME,
+   ORDER_ALFABETICAMENTE,
+   FILTRADO_FECHA,
+   ORDEN_NUMERO,
+   TEAMS,
+   FILTRADO_TEAMS,
+   API,
+   BD,
+   DELETE_DRIVERS,
+   
+} from './action';
 
 
 
 const initialState = {
    myDrivers: [], // principal
    copyDrivers: [], //  copia del principal
-   teams:[],
-  
- 
+   teams: [],
+   
+
+
 }
 
 
@@ -20,7 +33,7 @@ const reducerDrivers = (state = initialState, action) => {
             ...state,
             myDrivers: action.payload,
             copyDrivers: action.payload,
-         
+
 
          }
       //..............................................
@@ -77,7 +90,7 @@ const reducerDrivers = (state = initialState, action) => {
                            localeCompare(a.forename)
                      )
          }
-//....................................................
+      //....................................................
       case ORDEN_NUMERO:
          const orderNumero = [...state.copyDrivers]
          return {
@@ -93,32 +106,38 @@ const reducerDrivers = (state = initialState, action) => {
                         (a, b) => b.id - a.id
                      )
          }
-         //...........................................
+      //...........................................
       case TEAMS:
          return {
             ...state,
             teams: action.payload
          }
-
+      //......................................................
       case FILTRADO_TEAMS:
-         const filtrado= state.copyDrivers. filter((filt)=> filt.teams !== undefined && filt.teams.includes(action.payload))
+         const filtrado = state.copyDrivers.filter((filt) => filt.teams !== undefined && filt.teams.includes(action.payload))
          return {
             ...state,
             myDrivers: filtrado
          }
-
-    case API :
-      return {
-         ...state,
-         myDrivers: state.copyDrivers.filter((a)=> typeof a.id === 'number')
-      } 
-      case BD :
-      return {
-         ...state,
-         myDrivers:state.copyDrivers.filter((r)=> typeof  r.id === 'string')
-      }
-
-
+      //............................................................
+      case API:
+         return {
+            ...state,
+            myDrivers: state.copyDrivers.filter((a) => typeof a.id === 'number')
+         }
+      //........................................................
+      case BD:
+         return {
+            ...state,
+            myDrivers: state.copyDrivers.filter((r) => typeof r.id === 'string')
+         }
+         //...........................................................
+      case DELETE_DRIVERS:
+         
+         return {
+            ...state,
+         }
+        
 
       default:
          return {

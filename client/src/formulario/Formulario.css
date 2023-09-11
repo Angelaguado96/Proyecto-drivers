@@ -1,3 +1,51 @@
-.boxformulario{
-   background-color: blue;
+
+.boxPri{
+
+   display: flex; 
+   align-items: center; 
+   height: 100vh; 
+   
 }
+.boxformulario{
+   
+   margin-right: 28vh;
+   display: flex; 
+   border: 1vh solid;
+   border-radius: 20px;
+   height: 90vh;
+   width: 60vh;
+
+}
+.boximput{
+  
+   margin: 2vh;
+   height: 8vh;
+}
+.imput{
+   border-radius: 1vh;
+   height: 4vh;
+   width: 55vh;
+}
+.boxBoton{
+   align-items: center;
+   display: flex;
+   justify-content: center;
+}
+ .botoCrear{
+   margin-top: 8vh;
+   width: 25vh;
+   height: 6vh;
+   color: rgb(240, 240, 240);
+   font-family: 'Oswald', sans-serif;
+   background-color: red !important;
+   border: none;
+   border-radius: 5px;
+ }
+ .tituloDeformulario{
+   font-family: 'Oswald', sans-serif;
+ }
+ .comentarios{
+   width: 100vh;
+   height: 100vh;
+   background-color: red;
+ }

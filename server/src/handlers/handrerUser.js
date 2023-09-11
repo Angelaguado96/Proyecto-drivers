@@ -22,7 +22,7 @@ const getUser = async (req, res) => {
       const respuestaGet = await getDrivers()
       res.status(200).json(respuestaGet);
    } catch (error) {
-      res.status(400).json({ error: 'Error de conexion en la ruta verifique ' });
+      res.status(400).json({ error:error.message});
    }
 
 }
@@ -43,13 +43,12 @@ const userID = async (req, res) => {
 //Buscar  por  nombre 
 const getIndependientes = async (req, res) => {
    try {
-      const { name } = req.query
-      
-      
-      const indepe = await buscarBD(name)
-     res.status(201).json(indepe)
+      const { name } = req.query 
+    
+   const resultado = await buscarBD(name)
+     res.status(200).json(resultado)
    } catch (error) {
-      res.status(401).json({ error: error.message })
+      res.status(400).json({ error: error.message })
    }
 }
 
@@ -66,9 +65,9 @@ const userPost = async (req, res) => {
          image,
          dob,
          nationality,
-         teamsId,
          teams
       } = req.body
+   console.log(req.body.teams)
       const respuesta = await posteos(
          forename,
          surename,
@@ -76,13 +75,14 @@ const userPost = async (req, res) => {
          image,
          dob,
          nationality,
-         teamsId,
-         teams
+         teams,
+         
       )
       res.status(200).json(respuesta)
    } catch (error) {
+      console.log(error)
       res.status(402).json({ error: error.message });
-
+      
    }
 }
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -92,7 +92,6 @@ const getTeams = async (req, res) => {
 
    try {
       const respuesta = await pedidoTeams()
-      console.log(respuesta)
       res.status(201).json(respuesta)
    
    } catch (error) {

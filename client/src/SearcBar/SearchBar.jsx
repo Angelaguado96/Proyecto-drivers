@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { seachBarName,addDrivers } from '../Redux/action';
  import { Link } from 'react-router-dom'
-
+ import './SearchBar.css'
+ import logo from '../image/logooooo.png'
 
 
 
@@ -12,6 +13,7 @@ const SearchBar = () => {
    
    const [name, setName] = useState('');
    const dispatch = useDispatch();
+   
    
    
     
@@ -22,23 +24,53 @@ const SearchBar = () => {
       }
       
       const handlerSearch = () => {
+        
             dispatch(seachBarName(name))
+            console.log('me estas despachando de searc ' +name)
       }
       const handlerDriversToal=()=>{
-       console.log('esta en principal '+ dispatch(addDrivers()))
+        dispatch(addDrivers())
       }
 
   return (
-    <div>
+    <div className='cajaDeBuscador'>
+      <div className='logo'>
+         <img  className='imagenLogo' src={logo} alt="iamgen" />
+
+      </div>
+        
+          <div className='CajaBu'>
         <button className='botoBuscar'onClick={handlerSearch} >Buscar</button>
        <input  type="text" value={name} onChange={handlerInpunt} className='imputBuscar' /> 
+          </div>
+
+          <div className='cajaDrives'>
        <button onClick={handlerDriversToal}>Driveres</button> 
-        
+          </div>
+
+       <div className='cajaDeCrearPersonajes'>
        <Link to='/Formulario'>
        <button >Crear perosajes</button>
        </Link>
-       
+       </div>
 
+     <div className='CajaDeInicio'>
+       <Link to='/'>
+       <button >inicio</button>
+       </Link>
+       </div>
+      
+      <div className='cajaHome'>
+
+       <Link to='/home'>
+       <button >Home</button>
+       </Link>
+      </div>
+       <div>
+       <Link to='/favorites'>
+       <button >favorites</button>
+       </Link>
+      </div>
     </div>
   )
 }

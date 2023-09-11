@@ -6,28 +6,39 @@ const { Op } = require("sequelize");
 
 //  PETICION A LA BASE DE DATOS  LOS 15 
 const buscarBD = async (name) => {
-
-   const nombresConverido= name.toUpperCase().charAt(0)+name.slice(1).toLowerCase();
+   const nombresConverido =
+   name.toUpperCase().charAt(0) + name.slice(1).toLowerCase();
    
+   
+   
+   console.log( 'base de datso ' + name)
    const buscadorDeName = await Driver.findAll({
       where: {
          forename: {
-            [Op.iLike]: `%${name}`
+            [Op.iLike]: `%${name}%`
          }
-      },
-      limit: 15
-   })
+           },
+           limit: 15
+         })
+         
+     
+
+
    
    if (buscadorDeName.length >= 15) {
-      buscadorDeName
+      return buscadorDeName
    }
    
-
+   
+   
+   
+   
    const URL = `http://localhost:5000/drivers?name.forename=${nombresConverido}`
    const dataaa = (await axios.get(`${URL}`)).data
-  
-   if(dataaa.length==0) throw Error (`el nombre no existe ${nombresConverido}`)
    
+   
+   
+
    const NewDataa = dataaa.map((elem) => ({
       id: elem.id,
       forename: elem.name.forename,
@@ -41,16 +52,26 @@ const buscarBD = async (name) => {
       
    }))
    
-  
+   
    const filtrado = NewDataa.filter((driver) => driver.forename.toLowerCase() === name.toLowerCase())
-     
-
+   
+   
    const completado = 15 - buscadorDeName.length
-   const lites15 = filtrado.slice(0,completado)
-
+   const lites15 = filtrado.length > 0 ? filtrado.slice(0, completado) : []
+   
+   if (buscadorDeName.length === 0 && filtrado.length === 0) {
+      return [];
+      
+   }
+   
    return [...buscadorDeName,...lites15]
 
 }
+
+
+
+
+
 
 module.exports = { buscarBD }
 
@@ -58,4 +79,3 @@ module.exports = { buscarBD }
 
 
 
-// 

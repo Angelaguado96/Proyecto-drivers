@@ -1,6 +1,6 @@
 const IMAGE = 'https://i.pinimg.com/564x/a9/18/b1/a918b1826133f4759b30e069a0ed19eb.jpg'
 const axios = require('axios')
-const { Driver } = require('../db')
+const { Driver ,Teams} = require('../db')
 
 
 
@@ -33,8 +33,20 @@ const cleanArray = (arr) => {
 
 // AQUI  HAGO  UN PETICION  DE  API  CON TODO  LOS  DRIVER Y DE LA BASE DE DATOS 
 const getDrivers = async () => {
-  const dataDriver = await Driver.findAll()
 
+  const dataDriver = await Driver.findAll({
+    include:{model:Teams}
+  })
+  const  mape =dataDriver.map((g)=>{
+     const ji = g.Teams.map((t)=> t.name ).join(',');
+
+     g.teams = ji
+
+
+
+    return g
+  }) 
+    
   const response = await axios.get(`http://localhost:5000/drivers`);
   const drivers = response.data
   if (!drivers) throw Error(`No se encontraron personajes`);
@@ -51,7 +63,7 @@ const getDrivers = async () => {
     }
     return driver
   })
-  return [...dataDriver, ...defectos]
+  return [...mape, ...defectos]
 }
 // se exporta a Handler
 

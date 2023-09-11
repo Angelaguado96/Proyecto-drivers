@@ -1,6 +1,5 @@
 .conteinerPrincipal {
-  
-    /* background-color: rgb(94, 150, 163);  */
+   
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
@@ -17,17 +16,23 @@
 
 
 .conteinerCard {
-   border-radius: 15px;
+ 
+   border-radius:  15px;
    backdrop-filter: blur(15px);
    /* background-color: aquamarine; */
- 
+   border: solid #f0efefde;
+  padding: 0.9em;
+   max-height:50vh ;
    align-items: center;
-   width: 35vh;
-   margin-top: 15px;
-   margin-left: 8px;
+   width: 30vh;
+   margin-top: 20px;
  text-align: center;
+  
  
    
+}
+.paginado{
+   margin-top: 30px;
 }
 
 .imagenes {

@@ -1,9 +1,18 @@
 .titlePrincipla{
-   color: rgb(236, 148, 235);
-   
    font-size: 17px;
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.boxSelect{
-   margin: 30px;
+
+.boxxxxxx{
+   display: flex;
+}
+.boxs{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   margin: 10px;
+
+}
+.boxDeOrigen{
+   margin: 5px;
 }

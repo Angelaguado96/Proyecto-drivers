@@ -3,7 +3,7 @@ const URL = 'http://localhost:3002/drivers'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
-
+import gif from '../image/gif.gif'
 
 
 
@@ -13,6 +13,7 @@ const Detail = () => {
 
    const { id } = useParams()
    const [drivers, setDrivers] = useState([])
+   
   
    
    useEffect(() => {
@@ -35,7 +36,6 @@ const Detail = () => {
    }, [id])
 
 
-
    return (
       <div className='boxPrincipal'>
        
@@ -43,16 +43,21 @@ const Detail = () => {
          <h1 className='title'>Get to know me better...! </h1>
          <div className='box_image'>
             <img className='imagen' src={drivers.image} alt="imagen "/>
+            <p className='letra'>CONOCEME</p>
          </div>
          <div className='boxInfo'>
-            <h2>id: {drivers?.id}</h2>
-            <h2> Forename :{drivers?.forename}</h2>
-            <h2> Surename :{drivers?.surename}</h2>
-            <h2> Dob :{drivers?.dob}</h2>
-            <h2> Nationality : {drivers?.nationality}</h2>
-            <h2> Description : {drivers?.description}</h2>
-            <h2> Teams :{drivers?.teams}</h2>
+            
+            <h2 className='h2'> Forename :  {drivers?.forename}</h2><br/>
+            <h2> Surename :  {drivers?.surename}</h2><br/>
+            <h2> Dob: {drivers?.dob}</h2><br/>
+            <h2> Nationality :  {drivers?.nationality}</h2><br/>
+            <h2> Teams :  {drivers?.teams}</h2><br/>
+            <h2> Description : <br/> {drivers?.description}</h2><br/>
          </div>
+            <div className='gif'>
+              <img className='ImageGIf' src={gif} alt="imagen" />
+         
+            </div>
       </div>
    )
 }
