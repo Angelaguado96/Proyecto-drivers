@@ -6,7 +6,7 @@ import { seachBarName,addDrivers } from '../Redux/action';
  import { Link } from 'react-router-dom'
  import './SearchBar.css'
  import logo from '../image/logooooo.png'
-
+ 
 
 
 const SearchBar = () => {
@@ -23,11 +23,13 @@ const SearchBar = () => {
          setName(evento.target.value)
       }
       
-      const handlerSearch = () => {
+      const handlerSearch = (name) => {
         
             dispatch(seachBarName(name))
             console.log('me estas despachando de searc ' +name)
       }
+
+      // resetiado 
       const handlerDriversToal=()=>{
         dispatch(addDrivers())
       }
@@ -40,36 +42,37 @@ const SearchBar = () => {
       </div>
         
           <div className='CajaBu'>
-        <button className='botoBuscar'onClick={handlerSearch} >Buscar</button>
+        <button className='botoBuscar'onClick={()=>handlerSearch(name)} >Search</button>
        <input  type="text" value={name} onChange={handlerInpunt} className='imputBuscar' /> 
           </div>
+            <div className='boxDeBotones '>
 
-          <div className='cajaDrives'>
-       <button onClick={handlerDriversToal}>Driveres</button> 
+          <div className='cajaHome'>
+       <button className='botones' onClick={handlerDriversToal}>Drivers</button> 
           </div>
 
-       <div className='cajaDeCrearPersonajes'>
+       <div className='cajaHome'>
        <Link to='/Formulario'>
-       <button >Crear perosajes</button>
+       <button  className='botones' >Create Drivers</button>
        </Link>
        </div>
 
-     <div className='CajaDeInicio'>
+     <div className='cajaHome'>
        <Link to='/'>
-       <button >inicio</button>
+       <button className='botones'  >
+Start</button>
        </Link>
        </div>
       
       <div className='cajaHome'>
 
        <Link to='/home'>
-       <button >Home</button>
+       <button  className='botones' >Home</button>
        </Link>
       </div>
        <div>
-       <Link to='/favorites'>
-       <button >favorites</button>
-       </Link>
+       
+      </div>
       </div>
     </div>
   )

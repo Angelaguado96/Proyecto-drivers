@@ -10,7 +10,7 @@ import './Filtrado.css'
 const Filtrado = () => {
 
   const dispatch = useDispatch()
-  const respTeams = useSelector((state) => state.teams)
+  const respTeams = useSelector((state) => state.teams) //  traigo la  info de estado  global
 
   //  hago el  montaje de  mi Teams
    useEffect(() => {
@@ -30,13 +30,15 @@ const Filtrado = () => {
   const halderFilterTeams = (even) => {
     dispatch(filtadoTeams(even.target.value))
     
+    
   }
   
+  //  aqui dispavho la  info que tegno en api 
   const buscarAp =()=>{
-   console.log('estas dento de api')
+   
    dispatch(buscarApi())
   }
- 
+  // aqui dispacho la  info que  tengo en la base de datos  
   const buscarDB =()=>{
     
     console.log('estas dentro de base de datos')
@@ -52,15 +54,15 @@ const Filtrado = () => {
       <p className='titlePrincipla'>BD/API</p>
       <div className='boxDeOrigen'>
 
-        <button className='api' onClick={buscarAp} >API</button>
-        <button   className = 'api'onClick={buscarDB}>DB</button>  
+        <button className='botoness' onClick={buscarAp} >API</button>
+        <button   className = 'botoness'onClick={buscarDB}>DB</button>  
       </div>
       
       </div>
 
       <div className='boxs'>
       <p className='titlePrincipla'> TEAMS </p>
-        <select onChange={halderFilterTeams}  className='boxSelect' >
+        <select  onChange={halderFilterTeams}  className='boxSelect' >
            <option  > TEAMS</option>
 
             {
@@ -74,7 +76,7 @@ const Filtrado = () => {
         </select>
       </div>
       <div className='boxs'>
-      <p className='titlePrincipla'> ORDENAMINETO ALFABETICAMENTE </p>
+      <p className='titlePrincipla'> ALPHABETICALL </p>
         <select className='boxSelect' onChange={handlerOrder}>
 
           <option  >ORDENALOS POR : </option>
@@ -84,7 +86,8 @@ const Filtrado = () => {
       </div>
 
       <div className='boxs'>
-      <p className='titlePrincipla'> POR NUMERO DE ORDEN </p>
+      <p className='titlePrincipla'> BY ORDER NUMBER
+ </p>
         <select className='boxSelect' onChange={handlerNumeroOrder}>
           <option  >ORDENALOS POR : </option>
           <option value="P" >Primero</option>
@@ -93,8 +96,8 @@ const Filtrado = () => {
       </div>
 
       <div className='boxs'>
-      <p className='titlePrincipla'> POR FECHA DE NACIMIENTO </p>
-        <select onChange={handlerFilterFecha} >
+      <p className='titlePrincipla'> BY DATE OF BIRTH </p>
+        <select className='boxSelect' onChange={handlerFilterFecha} >
           <option  >ORDENALOS POR : </option>
           <option className='boxSelect' value="M" >Mayores</option>
           <option value="D" >Menores</option>

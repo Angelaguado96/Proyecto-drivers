@@ -1,5 +1,4 @@
 .conteinerPrincipal {
-   
    display: flex;
    flex-wrap: wrap;
    justify-content: space-between;
@@ -43,13 +42,16 @@
    
    
 }
+.datos{color: white;}
 .titleTeams{
    font-size: 10px;
-   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-   color: aliceblue;
+   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   color: rgb(23, 191, 229);
+   font-size: 17px;
 }
 .h4{
+   color: rgb(23, 191, 229);
    font-size: 15px;
    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-   color: aliceblue;
+  
 }

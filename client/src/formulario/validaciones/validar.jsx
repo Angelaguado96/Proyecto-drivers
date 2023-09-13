@@ -6,9 +6,13 @@ const validar = (data) => {
    
    if (data.forename.length > 20) {
       error.forename = 'solo es permitido  10 caracteres'
+   } else if (!/^[^\d]+$/.test(data.forename)){
+      error.forename='No se permite numeros'
    }
    if (data.surename.length > 20) {
       error.surename = 'solo es permitido  10 caracteres'
+   } else if (!/^[^\d]+$/.test(data.surename)){
+      error.surename='No se permite numeros'
    }
    // if (!data.image) {
    //    error.image = 'campo obligatorio'
@@ -17,7 +21,7 @@ const validar = (data) => {
       error.description = 'solo es permitido  30 caracteres'
    }
    if (!data.nationality) {
-      error.nationality = 'campo obligatorio'
+      error.nationality = 'Campo obligatorio'
    }
    if (!data.dob) {
       error.dob = 'campo obligatorio'

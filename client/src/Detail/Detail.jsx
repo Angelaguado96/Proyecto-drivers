@@ -1,8 +1,11 @@
-import './Detail.css'
-const URL = 'http://localhost:3002/drivers'
+
+//importaciones de  hook
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
+//  importaciones de component
+import './Detail.css'
+const URL = 'http://localhost:3002/drivers'
 import gif from '../image/gif.gif'
 
 
@@ -11,10 +14,10 @@ import gif from '../image/gif.gif'
 
 const Detail = () => {
 
-   const { id } = useParams()
-   const [drivers, setDrivers] = useState([])
+   const { id } = useParams() //  traigo el  id de params
+   const [drivers, setDrivers] = useState([]) //  aqui guardo la info de  mi  api
    
-  
+   console.log(drivers)
    
    useEffect(() => {
 
@@ -30,7 +33,7 @@ const Detail = () => {
             })
 
       } catch (error) {
-         console.log({ error: 'hubo un error en la direcion' })
+         console.error({error:error.message})
       }
 
    }, [id])
@@ -38,7 +41,6 @@ const Detail = () => {
 
    return (
       <div className='boxPrincipal'>
-       
        
          <h1 className='title'>Get to know me better...! </h1>
          <div className='box_image'>
@@ -51,7 +53,7 @@ const Detail = () => {
             <h2> Surename :  {drivers?.surename}</h2><br/>
             <h2> Dob: {drivers?.dob}</h2><br/>
             <h2> Nationality :  {drivers?.nationality}</h2><br/>
-            <h2> Teams :  {drivers?.teams}</h2><br/>
+            <h2> Teams :  {drivers?.teams||drivers?.Teams?.map((te)=>te.name).join(',') }</h2><br/>
             <h2> Description : <br/> {drivers?.description}</h2><br/>
          </div>
             <div className='gif'>

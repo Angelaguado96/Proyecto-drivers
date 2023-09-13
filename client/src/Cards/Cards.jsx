@@ -9,34 +9,31 @@ import { HiChevronDoubleLeft, HiChevronDoubleRight, } from "react-icons/hi";
 
 
 
-  
+
 
 const Cards = () => {
-
-   const [page, setPage] = useState(1)
-   const [totalPages, setTotalPaguina] = useState(0)
-
+       
+  
+   const [page, setPage] = useState(1) //  mi contador de page
+   const [totalPages, setTotalPaguina] = useState(0) //  toal de paguinas es  57
    const dispatch = useDispatch()
-   //  traigo a mi estado global
-   const resposeDeApi = useSelector((state) => state.myDrivers)
-        
-    
+   const resposeDeApi = useSelector((state) => state.myDrivers) //  traigo a mi estado global
+
+
 
    useEffect(() => {
-      // despacho para el  momtaje
+      // despacho para el  momtaje de  los drivers 
       dispatch(addDrivers())
    }, [])
 
 
 
    useEffect(() => {
-      // aqui cojo el cpntendo del api  y  lo divido entre 9 con numero redondo  
-      // seria  57 paguindos
-      
+      //  la info de api lo divido entre 9 con valo  entero
       const total = Math.ceil(resposeDeApi.length / 9)
       //lo guardo en mi estado local
       setTotalPaguina(total)
-
+      //  vlor  57
    }, [resposeDeApi])
 
 
@@ -54,7 +51,7 @@ const Cards = () => {
                      }
                   }}> <HiChevronDoubleLeft /></button>
 
-                  <button className='marcadorpage'> <span className='letaPagina'>PAGUINA: {page}</span></button>
+                  <button className='marcadorpage'> <span className='letaPagina'>Page: {page}</span></button>
 
                   <button className='botonNext' onClick={() => {
                      if (page < totalPages) {
@@ -63,15 +60,16 @@ const Cards = () => {
                         setPage(totalPages)
                      }
                   }
-               }><HiChevronDoubleRight /></button>
-         
-               </div>
-         
-         )
-      }
-        
+                  }><HiChevronDoubleRight
+                  /></button>
 
-      <CardsList data={resposeDeApi?.slice((page - 1) * 8, page * 8)} />
+               </div>
+
+            )
+         }
+
+        
+         <CardsList data={resposeDeApi?.slice((page - 1) * 8, page * 8)} />
       </div>
    )
 }
@@ -81,21 +79,21 @@ const Cards = () => {
 const CardsList = ({ data }) => {
    return (
       <div>
-         { !!data.length &&
+         {!!data.length &&
             data?.map((card) => {
                return (
                   <Card
                      key={card.id}
                      id={card.id}
                      forename={card.forename}
-                     teams={card.teams}
+                     teams={card.teams ||card.Teams?.map((te)=>te.name).join(',') }
                      image={card.image}
                      dob={card.dob}
                   />
                )
             })
          }
-         { !data.length && <div>no se encontro al persona</div>}
+         {!data.length &&  <div> no se encontro personajes </div> }
 
 
       </div>

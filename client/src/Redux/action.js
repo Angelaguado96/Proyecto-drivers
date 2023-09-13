@@ -27,7 +27,7 @@ export const addDrivers = () => {
       try {
          const URL = 'http://localhost:3002/drivers'
          const { data } = await axios(`${URL}`)
-         console.log(data)
+         
          dispatch({ type: ADD_DRIVERS, payload: data })
       } catch (error) {
          console.error({ error: error.message })
@@ -38,12 +38,12 @@ export const addDrivers = () => {
 
 //  buscando  por nombre  
 export const seachBarName = (name) => {
-   console.log('estas en action ' + name)
+   
    return async function (dispatch) {
       try {
          const URL = `http://localhost:3002/drivers/name?name=${name}`
          const { data } = await axios(`${URL}`)
-         console.log('awd' + data)
+         console.log('estas en name' + data)
          dispatch({ type: SEARCH_DRIVER_NAME, payload: data })
 
       } catch (error) {

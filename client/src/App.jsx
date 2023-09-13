@@ -23,6 +23,8 @@ function App() {
 
   return (
     <>
+  
+ 
     {location.pathname !== '/' && <NavBar/>}
         
       <Routes>

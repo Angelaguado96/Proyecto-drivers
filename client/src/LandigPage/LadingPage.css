@@ -38,6 +38,9 @@
    left: 20vh; 
    transform: translate(0, 0); 
 }
+.botonDelanding{
+   margin-bottom: -5vh;
+}
 
    
 
@@ -241,3 +244,34 @@ color: rgb(253, 253, 41);
 }
 
 
+
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+   .fondo {
+     background-size: contain;
+     padding: 10px;
+   }
+ 
+   .boxLogo {
+     max-width: 200px;
+   }
+ 
+   .content {
+     max-width: 90%;
+   }
+ 
+   .botonDelanding {
+     width: 100%;
+   }
+ 
+   .boxDrivers {
+     flex-direction: column;
+     align-items: center;
+   }
+ 
+   .driver {
+     width: 100%;
+     margin: 5px 0;
+   }
+ }

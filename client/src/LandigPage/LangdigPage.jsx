@@ -1,6 +1,6 @@
 import React from 'react'
 import './LadingPage.css'
-import { useState } from 'react'
+
 import { Link } from 'react-router-dom'
 import logo from '../image/logooooo.png'
 import driver1 from '../image/driver1.avif'
@@ -9,18 +9,20 @@ import driver3 from '../image/driver3.avif'
 import driver4 from '../image/driver4.avif'
 import driver6 from '../image/drivers6.avif'
 import driver5 from '../image/drivers5.avif'
+import { Toaster, toast } from 'react-hot-toast';
 
 
 
 const LangdigPage = () => {
-  
+
 
   return (
 
     <div className='fondo'>
 
+
       <div className='boxLogo'>
-        <img className='log' src={logo} alt="iamgen"  />
+        <img className='log' src={logo} alt="iamgen" />
       </div>
 
       <div className='Bienvenida'>
@@ -29,6 +31,7 @@ const LangdigPage = () => {
           Meet the Best
           Formula 1 Drivers of 2024
         </h2>
+
         <br />
         <p className='tx'>
           Desde hoy las reglas cambiarán significativamente  la competicion es  fuerte ps las reglas tambien este año y el habra límites correremos hata llegar al
@@ -37,7 +40,10 @@ const LangdigPage = () => {
       </div>
       <div>
         <Link to='/home'>
-          <button className='botonDelanding'> Que Empieze la carrera</button>
+
+          <button  className='botonDelanding'>
+            Que Empieze la carrera</button>
+          <Toaster />
         </Link>
 
       </div>

@@ -20,8 +20,8 @@
  margin-left: 15px;
 }
 .boxMenu{
-   /* backdrop-filter:blur(15px); */
-   background-color: dimgrey;
+   backdrop-filter:blur(15px); 
+  
     border-radius: 15px;
     height: 60rem;
     width: 21rem;

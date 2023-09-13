@@ -1,8 +1,10 @@
+//  importacion de  componentes
 import React from 'react'
+import {deleteDrivers} from'../Redux/action'
 import './Card.css'
+//importacion de  koos
  import { Link } from 'react-router-dom'
  import { useDispatch } from 'react-redux'
- import {deleteDrivers} from'../Redux/action'
  import { useState} from 'react'
 
  
@@ -12,19 +14,22 @@ const Card = ( {id,teams ,image,forename,dob} ) => {
 
    const dispatch = useDispatch()
    
-   const[isFav,setFav]=useState(false)
+  //  const[isFav,setFav]=useState(false)
   
 
-   const  handleFavorite =()=>{
-    setFav(!isFav)
-   }
+  //  const  handleFavorite =()=>{
+  //   setFav(!isFav)
+  //  }
    
+  //  aqui eslimino por id  las cartasd e base de datos
    const  elimiar =()=>{
     dispatch(deleteDrivers(id))
     
    }
 
 
+
+   //  rederiso mis cartas
   return (
     
 
@@ -34,14 +39,11 @@ const Card = ( {id,teams ,image,forename,dob} ) => {
     <Link to={`/detail/${id}`}>
       <img src={image} className='imagenes' alt="imagen " />
     </Link>
-      <h4 className='h4'> Id: {id}</h4>
-      <h4 className='h4'> Name: {forename}</h4>
-      <h4 className='titleTeams'> Teams: {teams}</h4>
-      <h4 className='titleTeams'> Fec.de Nacim. : {dob}</h4>
-       
-           <button className='botonlove' onClick={handleFavorite}>
-            { isFav ? '❤️' :'🤍'}
-             </button> 
+      <h4 className='h4'> Id: <span className='datos'>{id}</span> </h4>
+      <h4 className='h4'> Name: <span className='datos'>{forename}</span> </h4>
+      <h4 className='titleTeams'> Teams: <span className='datos'>{teams}</span> </h4>
+      <h4 className='titleTeams'> Date Of Birth : <span className='datos'>{dob} </span> </h4>
+         
     </div>
 
    </div>

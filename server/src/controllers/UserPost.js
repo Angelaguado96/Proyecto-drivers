@@ -22,15 +22,7 @@ const posteos = async (
 
    try {
 
-      const newDrivers = await Driver.create({
-         forename,
-         surename,
-         description,
-         image,
-         dob,
-         nationality,
-
-      })
+      const newDrivers = await Driver.create({forename,surename, description,image,dob, nationality})
 
       await Promise.all(teams?.map(async function (item) {
 
@@ -41,7 +33,7 @@ const posteos = async (
          }
       }))
    } catch (error) {
-      console.log(error)
+      console.log({erro:error.message})
 
    }
 

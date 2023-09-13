@@ -2,10 +2,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+
 import axios from 'axios'
-
-
 //  IMPORTACIONES  DE  COMPONETES  
 import './Formulario.css'
 import { addDrivers, Teams } from '../Redux/action.js'
@@ -22,8 +20,8 @@ const Formulario = () => {
    //  estado local donde se almacena mi formulario
    const [errores, setErrores] = useState({})
 
-   const [teamsIds, setTeamsIds] = useState([])
-  
+   const [teamsIds, setTeamsIds] = useState([])// poner  todas la option  
+   
    const [data, setData] = useState(
       {
          forename: '',
@@ -49,15 +47,10 @@ const Formulario = () => {
 
 
    const halnderImput = (even) => {
-     
-
-         setData({ ...data, [even.target.name]: even.target.value });
-      
-      
+       setData({ ...data, [even.target.name]: even.target.value });  
       setErrores(validar({ ...data, [even.target.name]: even.target.value }))
-
    }
-
+   
    //  ingeso la  informacion a la URL  de pedido post 
    const handlerForm = async (eve) => {
       eve.preventDefault()
@@ -72,18 +65,18 @@ const Formulario = () => {
          teams: teamsIds
       }
 
+    
       const errores = validar(newdata)
-      console.log(errores)
       if (Object.values(errores).length) {
          return errores
       }
       try {
-         console.log(newdata)
+         
          const response = await axios.post(`${URL}`, newdata)
-         console.log( response.data)
+         console.log( 'se creo'+response.data)
          alert('se creo con exito tu personaje')
       } catch (error) {
-         alert('los campos estan vacios no se pudo crear')
+         console.error({error:error.message})
          
       }
       
@@ -92,20 +85,18 @@ const Formulario = () => {
    const handleIdsTems = ({target}) => {
 
    const idExist = teamsIds.find(t => t == target.value);
+   console.log('estyo aqyu '  +teamsIds)
    if (idExist) return; 
     setTeamsIds([...teamsIds,target.value])
     const selectedTeams = Array.from(target.selectedOptions, (option) => option.value);
          // aqui  en  mi estado local  en  valor name: guardo el el valor de  aray creado
          setData({ ...data, [target.name]: selectedTeams });
+         
    }
-
-
-
- 
+   
+   // const  filtrodo  =  Nacionalidad.find((re)=>console.log(re.nationality))
    return (
       <div className='boxPri'>
-       
-          
          <div className='boxformulario'>
             <form onSubmit={handlerForm}>
 
@@ -114,7 +105,7 @@ const Formulario = () => {
                   <input className='imput' type="text" id='forename' name='forename' value={data.forename}
                    onChange={halnderImput} 
                    />
-                  {errores.forename && <div>{errores.forename}</div>}
+                  {errores.forename && <div className='error' >{errores.forename}</div>}
                </div>
 
                <div className='boximput'>
@@ -122,7 +113,7 @@ const Formulario = () => {
                   <input className='imput' type="text" id='surename' name='surename' value={data.surename}
                    onChange={halnderImput}
                     />
-                  {errores.surename && <div>{errores.surename}</div>}
+                  {errores.surename && <div className='error' >{errores.surename}</div>}
                </div>
 
                <div className='boximput'>
@@ -137,13 +128,13 @@ const Formulario = () => {
                      }
                   </select>
                </div>
-               {errores.nationality && <div>{errores.nationality}</div>}
+               {errores.nationality && <div className='error'>{errores.nationality}</div>}
 
                <div className='boximput'>
                   <label className='tituloDeformulario' htmlFor="image">Image: </label> <br/>
                   <input className='imput' type="file" id='image' name='image' value={data.image}
                    onChange={halnderImput} />
-                  {errores.image && <div>{errores.image}</div>}
+                  {errores.image && <div className='error' >{errores.image}</div>}
                </div>
 
                <div className='boximput'>
@@ -156,7 +147,7 @@ const Formulario = () => {
                   <label  className='tituloDeformulario' htmlFor="description">Description: </label> <br/>
                   <textarea  className='imput' type="text" id='description' name='description' value={data.description}
                    onChange={halnderImput} />
-                  {errores.description && <div>{errores.description}</div>}
+                  {errores.description && <div className='error' >{errores.description}</div>}
                </div>
 
                <div className='boximput'>
@@ -172,6 +163,7 @@ const Formulario = () => {
                   </select>
                   {errores.teams && <div>{errores.teams}</div>}
                </div>
+               
 
                <div className='boxBoton'>
                   <button  className='botoCrear' id="button" type='submit'>CREAR DRIVERS</button>

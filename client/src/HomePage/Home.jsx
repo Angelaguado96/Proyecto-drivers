@@ -7,16 +7,11 @@ import  './Home.css'
 
 const Home = () => {
 
-    
-
   return (
     <div className='contendior'>
       <Cards/> 
     </div>
   );
-
-
-
 
 }
 

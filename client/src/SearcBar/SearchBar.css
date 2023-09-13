@@ -1,49 +1,56 @@
-.cajaDeBuscador{
-
+.cajaDeBuscador {
+  
    display: flex;
    justify-content: space-between;
    align-items: center;
+
 }
 
 
-.botoBuscar{
+.botoBuscar {
    border-radius: 15px;
    width: 9em;
    height: 2em;
    cursor: pointer;
 
 }
-.imputBuscar{
+
+.imputBuscar {
    width: 15em;
    height: 2em;
    border-radius: 15px;
 }
-.CajaBu{
-  margin: 10px;
-   margin-left: -30vh;
-   margin-bottom:25px;
+
+.CajaBu {
+
+   margin-left: -5vh;
+   margin-bottom: 3vh;
 }
-.cajaDrives{
-   margin-left: -40vh;
+
+.imagenLogo {
+   width: 10vh;
+   height: 5vh;
 
 }
-.cajaDeCrearPersonajes{
-   margin-left: -25vh;
+
+.logo {
+
+   margin-left: 5vh;
 }
-.CajaDeInicio{
-   margin-left: -25vh;
-   margin-right: 100px;
+
+.cajaHome {
+   margin: 22px;
+}
+
+.boxDeBotones {
    
+   display: flex;
+   justify-content: center;
+   margin-right: 2vh;
+   width: 100vh;
 }
-.imagenLogo{
-   width: 9vh;
-   height: 9vh;
-}
-.logo{
-  
-margin-left: 5vh;
-}
-.cajaHome{
-   margin-left: -30vh;
-   margin-right: 15vh;
+.botones{
+   width: 20vh;
+   height: 4vh;
+   border: none;
 }

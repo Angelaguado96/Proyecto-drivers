@@ -35,14 +35,12 @@ const cleanArray = (arr) => {
 const getDrivers = async () => {
 
   const dataDriver = await Driver.findAll({
-    include:{model:Teams}
+    include:{model:Teams,attributes:['name'],trough:{attributes:[]}}
   })
-  const  mape =dataDriver.map((g)=>{
+  const  mape = dataDriver.map((g)=>{
      const ji = g.Teams.map((t)=> t.name ).join(',');
 
      g.teams = ji
-
-
 
     return g
   }) 

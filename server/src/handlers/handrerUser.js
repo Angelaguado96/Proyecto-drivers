@@ -58,26 +58,9 @@ const getIndependientes = async (req, res) => {
 const userPost = async (req, res) => {
 
    try {
-      const {
-         forename,
-         surename,
-         description,
-         image,
-         dob,
-         nationality,
-         teams
-      } = req.body
-   console.log(req.body.teams)
-      const respuesta = await posteos(
-         forename,
-         surename,
-         description,
-         image,
-         dob,
-         nationality,
-         teams,
-         
-      )
+      const {forename,surename,description,image, dob,nationality, teams} = req.body
+   // console.log(req.body.teams)
+      const respuesta = await posteos(forename,  surename,description, image,  dob,nationality,teams)
       res.status(200).json(respuesta)
    } catch (error) {
       console.log(error)
