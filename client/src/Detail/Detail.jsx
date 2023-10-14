@@ -17,8 +17,8 @@ const Detail = () => {
    const { id } = useParams() //  traigo el  id de params
    const [drivers, setDrivers] = useState([]) //  aqui guardo la info de  mi  api
    
-   console.log(drivers)
-   
+   // console.log(drivers)
+    // aqui hago el montaje y use el estado  local por que solo neceito renderizarlo aqui mas no en  otras partes 
    useEffect(() => {
 
       try {
@@ -48,7 +48,6 @@ const Detail = () => {
             <p className='letra'>CONOCEME</p>
          </div>
          <div className='boxInfo'>
-            
             <h2 className='h2'> Forename :  {drivers?.forename}</h2><br/>
             <h2> Surename :  {drivers?.surename}</h2><br/>
             <h2> Dob: {drivers?.dob}</h2><br/>

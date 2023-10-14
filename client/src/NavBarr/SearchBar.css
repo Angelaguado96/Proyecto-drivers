@@ -1,36 +1,37 @@
-.botoBuscar{
+/* Estilos base para .botoBuscar, .imputBuscar, .cajaDeSeracBarc y .boxMenu */
+.botoBuscar {
     border-radius: 15px;
-    width: 9em;
+    width: 100%; /* Ancho al 100% para adaptarse al contenedor padre */
     height: 2em;
     cursor: pointer;
     border: none;
-
 }
-.imputBuscar{
-    width: 15em;
+
+.imputBuscar {
+    width: 100%; /* Ancho al 100% para adaptarse al contenedor padre */
     height: 2em;
     border-radius: 15px;
     margin-top: 25px;
 }
-.cajaDeSeracBarc{
- /* background-color: rgb(247, 247, 247); */
- width: 30em;
- height: 50px;
- margin-top: 30px;
- margin-left: 15px;
+
+.cajaDeSeracBarc {
+    background-color: rgb(247, 247, 247);
+    width: 100%; /* Ancho al 100% para adaptarse al contenedor padre */
+    height: auto; /* Cambiado a altura automática para adaptarse al contenido */
+    margin-top: 30px;
+    margin-left: 0; /* Eliminado el margen izquierdo en pantallas pequeñas */
+    padding: 15px; /* Agregado espaciado para mejorar la apariencia en dispositivos móviles */
 }
-.boxMenu{
-   backdrop-filter:blur(15px); 
-  
+
+.boxMenu {
+    backdrop-filter: blur(15px);
     border-radius: 15px;
-    height: 60rem;
-    width: 21rem;
-    
-
+    height: auto; /* Cambiado a altura automática para adaptarse al contenido */
+    width: 100%; /* Ancho al 100% para adaptarse al contenedor padre */
+    padding: 15px; /* Agregado espaciado para mejorar la apariencia en dispositivos móviles */
 }
 
-.bovv{
+.bovv {
     background-color: rgb(205, 13, 13);
     width: 100%;
-    
 }

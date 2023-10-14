@@ -6,7 +6,7 @@ import { addDrivers } from '../Redux/action'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { HiChevronDoubleLeft, HiChevronDoubleRight, } from "react-icons/hi";
-
+import  { toast,Toaster } from 'react-hot-toast';
 
 
 
@@ -24,7 +24,7 @@ const Cards = () => {
    useEffect(() => {
       // despacho para el  momtaje de  los drivers 
       dispatch(addDrivers())
-   }, [])
+   },[])
 
 
 
@@ -86,14 +86,17 @@ const CardsList = ({ data }) => {
                      key={card.id}
                      id={card.id}
                      forename={card.forename}
-                     teams={card.teams ||card.Teams?.map((te)=>te.name).join(',') }
+                     teams={card.teams || card.Teams?.map((te)=>te.name).join(',') }
                      image={card.image}
                      dob={card.dob}
                   />
                )
             })
          }
-         {!data.length &&  <div> no se encontro personajes </div> }
+         {!data.length &&  <div> {  toast.error('no se encontro el personaje',{
+             duration: 2000,position: 'bottom-right'
+         })} 
+         <Toaster /> </div> }
 
 
       </div>

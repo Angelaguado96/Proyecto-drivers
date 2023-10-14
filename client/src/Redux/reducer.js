@@ -9,6 +9,8 @@ import {
    API,
    BD,
    DELETE_DRIVERS,
+   ADD_RANDON
+   
    
 } from './action';
 
@@ -43,10 +45,22 @@ const reducerDrivers = (state = initialState, action) => {
             myDrivers: action.payload,
          }
       //..............................................
+      case ADD_RANDON:
+         const andon = [...state.copyDrivers];
+         const startIndex = Math.floor(Math.random() * (andon.length - 5 + 1));
+         const endIndex = startIndex + 5;
+         const randomDrivers = andon.slice(startIndex, endIndex);
+         return {
+            ...state,
+            myDrivers:randomDrivers
+            
+         }
+      //..............................................
       case FILTRADO_FECHA:
          const allcopyDrivers = [...state.copyDrivers]
 
          const getYears = (dob) => {
+           
             // aqui  al string le saco solo el  año en pocicion 0 
             const añoPartes = dob.split('-')[0]
             return parseInt(añoPartes, 10)

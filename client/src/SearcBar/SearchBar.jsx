@@ -1,20 +1,25 @@
 
 import React from 'react'
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { seachBarName,addDrivers } from '../Redux/action';
+
+import { seachBarName,addDrivers,getrandon} from '../Redux/action';
  import { Link } from 'react-router-dom'
  import './SearchBar.css'
  import logo from '../image/logooooo.png'
- 
+ import { useDispatch } from 'react-redux'
 
 
 const SearchBar = () => {
    
    const [name, setName] = useState('');
+
    const dispatch = useDispatch();
-   
-   
+ 
+
+       const handerlucas=()=>{
+          
+          console.log(dispatch(getrandon()))
+       }
    
     
      
@@ -69,6 +74,7 @@ Start</button>
        <Link to='/home'>
        <button  className='botones' >Home</button>
        </Link>
+       <button onClick={handerlucas}> aleatoreo</button>
       </div>
        <div>
        

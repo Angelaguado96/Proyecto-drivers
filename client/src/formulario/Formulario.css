@@ -14,6 +14,7 @@
    border-radius: 20px;
    height: 90vh;
    width: 60vh;
+   margin-left: 2vh;
 
 }
 .boximput{
@@ -37,7 +38,7 @@
    height: 6vh;
    color: rgb(240, 240, 240);
    font-family: 'Oswald', sans-serif;
-   background-color: red !important;
+   background-color: rgb(47, 2, 2) !important;
    border: none;
    border-radius: 5px;
 

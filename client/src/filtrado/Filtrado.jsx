@@ -17,16 +17,20 @@ const Filtrado = () => {
      dispatch(Teams())
    }, [])
 
-
+   // aqui dispacho  las action para  oredenar alfabeticamente
   const handlerOrder = (even) => {
     dispatch(orderDrivers(even.target.value))
   }
+  // aqui dispacho para ordenar por  Fecha
   const handlerFilterFecha = (even) => {
     dispatch(filterFecha(even.target.value))
+    console.log(even.target.value)
   }
+  // aqui dispacho para ordenar id
   const handlerNumeroOrder = (even) => {
     dispatch(orderNumero(even.target.value))
   }
+  // despacho la info  del filtrado  por teams
   const halderFilterTeams = (even) => {
     dispatch(filtadoTeams(even.target.value))
     
@@ -40,8 +44,7 @@ const Filtrado = () => {
   }
   // aqui dispacho la  info que  tengo en la base de datos  
   const buscarDB =()=>{
-    
-    console.log('estas dentro de base de datos')
+    // console.log('estas dentro de base de datos')
    dispatch(buscarbd())
   }
  
@@ -90,8 +93,8 @@ const Filtrado = () => {
  </p>
         <select className='boxSelect' onChange={handlerNumeroOrder}>
           <option  >ORDENALOS POR : </option>
-          <option value="P" >Primero</option>
-          <option value="U" >Mayor</option>
+          <option value="P" >1 - 508</option>
+          <option value="U" >508 - 1</option>
         </select>
       </div>
 

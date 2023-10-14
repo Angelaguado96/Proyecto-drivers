@@ -9,7 +9,8 @@ export const FILTRADO_TEAMS = 'FILTRADO_TEAMS'
 export const API = 'API'
 export const BD = 'BD'
 export const DELETE_DRIVERS = 'DELETE_DRIVERS'
-// export const ADD_FAV = 'ADD_FAV'
+export const ADD_RANDON = 'ADD_RANDON'
+
 //IMPORTACION DE HOOK
 import axios from 'axios'
 
@@ -20,15 +21,31 @@ import axios from 'axios'
 
 
 
-//  pido  toda la  info  de  api negro feo 
+//  pido  toda la  info  de  api 
 export const addDrivers = () => {
    return async function (dispatch) {
 
       try {
-         const URL = 'http://localhost:3002/drivers'
+         const URL = '/drivers'
          const { data } = await axios(`${URL}`)
          
          dispatch({ type: ADD_DRIVERS, payload: data })
+      } catch (error) {
+         console.error({ error: error.message })
+      }
+   }
+}
+
+//  pido 5 randon 
+export const getrandon = () => {
+   return async function (dispatch) {
+
+      try {
+         const URL = '/drivers'
+         const { data } = await axios(`${URL}`)
+         console.log(data)
+         
+         dispatch({ type: ADD_RANDON, payload: data })
       } catch (error) {
          console.error({ error: error.message })
       }
@@ -41,7 +58,7 @@ export const seachBarName = (name) => {
    
    return async function (dispatch) {
       try {
-         const URL = `http://localhost:3002/drivers/name?name=${name}`
+         const URL = `/drivers/name?name=${name}`
          const { data } = await axios(`${URL}`)
          console.log('estas en name' + data)
          dispatch({ type: SEARCH_DRIVER_NAME, payload: data })
@@ -61,7 +78,7 @@ export const deleteDrivers = (id) => {
 
    return async function (dispatch) {
       try {
-         const URL = `http://localhost:3002/drivers/${id}`
+         const URL = `/drivers/${id}`
          const { data } = await axios.delete(`${URL}`)
          
             if(data.length===0) throw Error ('no se encontro ese personaje ')
@@ -83,7 +100,7 @@ export const deleteDrivers = (id) => {
 export const Teams = () => {
    return async function (dispatch) {
       try {
-         const URL = 'http://localhost:3002/teams'
+         const URL = '/teams'
          const response = await axios.get(`${URL}`)
          const datos = response.data
 
@@ -103,7 +120,7 @@ export const filtadoTeams = (teams) => {
 
 //filtrado  por feccha
 export const filterFecha = (dob) => {
-   return { type: FILTRADO_FECHA, payload: dob }
+   return { type: FILTRADO_FECHA, payload:dob }
 }
 
 // ordenar  por alfabeticamente
@@ -111,7 +128,7 @@ export const orderDrivers = (order) => {
    return { type: ORDER_ALFABETICAMENTE, payload: order }
 }
 
-// ordenar  por Numero
+// ordenar  por Numero de id
 export const orderNumero = (id) => {
    return { type: ORDEN_NUMERO, payload: id }
 }

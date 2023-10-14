@@ -34,15 +34,15 @@ const LangdigPage = () => {
 
         <br />
         <p className='tx'>
-          Desde hoy las reglas cambiarán significativamente  la competicion es  fuerte ps las reglas tambien este año y el habra límites correremos hata llegar al
-          fundicion habrá una gran reorganización para los equipos existentes antes de que nuevos competidores  asi que  preparate por que  ya EMPEZO LA CARRERA ..!!!
+          Desde hoy las reglas cambiarán significativamente  la competicion es  fuerte pues las reglas tambien tambien lo son este año no habra límites correremos hata llegar a la meta y la
+          fundicion habrá una gran reorganización para los equipos existentes y nuevos competidores  asi que  preparate por que  ya EMPEZO LA CARRERA ..!!!
         </p>
       </div>
       <div>
         <Link to='/home'>
 
           <button  className='botonDelanding'>
-            Que Empieze la carrera</button>
+            Que Empieze la carrera..!!</button>
           <Toaster />
         </Link>
 

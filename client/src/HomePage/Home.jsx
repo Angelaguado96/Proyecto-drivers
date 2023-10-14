@@ -6,7 +6,7 @@ import  './Home.css'
 
 
 const Home = () => {
-
+// solo renderiso las cartas  en   mi homer
   return (
     <div className='contendior'>
       <Cards/> 

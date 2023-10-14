@@ -26,7 +26,7 @@ const CarruComentario = () => {
   ]);
 
 
-
+   // aqui hago el montaje de las cartas  
   useEffect(() => {
     const interval = setInterval(() => {
       setComments((prevComments) => [...prevComments.slice(1), prevComments[0]]);
@@ -46,8 +46,6 @@ const CarruComentario = () => {
           }}
         >
           <div className='con'>
-
-         
           <img className='iamgeDriver' src={comment.image} alt='imagenestas aui'/>
           <div className='correo'>
           <h2>{comment.name}</h2>
