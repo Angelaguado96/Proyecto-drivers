@@ -52,7 +52,7 @@ const getDrivers = async () => {
   const apDriver = cleanArray(drivers);
 
   const defectos = apDriver.map((driver) => {
-    
+    //  imagen por defecto
     if (!driver.image ) {
       return {
         ...driver,

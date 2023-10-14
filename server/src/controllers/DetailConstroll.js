@@ -12,6 +12,7 @@ const DetailControll = async (idDriver) => {
 
 
   //  PETICION DE  EL API
+  //  es  numero
   if ((!isNaN(idDriver))) {
     const response = await axios(`${URL}/${idDriver}`)
     const reDeApi = response.data
@@ -35,7 +36,7 @@ const DetailControll = async (idDriver) => {
 
 
 
-  
+  //  no es  numero entrara  aqui
   if ((isNaN(idDriver))) {
     
     

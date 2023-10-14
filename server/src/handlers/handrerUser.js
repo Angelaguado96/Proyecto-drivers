@@ -59,7 +59,7 @@ const userPost = async (req, res) => {
 
    try {
       const {forename,surename,description,image, dob,nationality, teams} = req.body
-   // console.log(req.body.teams)
+   console.log(image)
       const respuesta = await posteos(forename,  surename,description, image,  dob,nationality,teams)
       res.status(200).json(respuesta)
    } catch (error) {

@@ -13,6 +13,7 @@ const  {getTeams}= require('../handlers/handrerUser')
 
 //  RUTAS
 
+//get teams
 router.get('/teams/',getTeams )
  // PETICION POR QUERY 
 router.get('/drivers/name', getIndependientes)
@@ -23,26 +24,10 @@ router.get('/drivers', getUser)
 router.get('/drivers/:idDriver',userID )
 // CREAT UN DRIVERS POST
 router.post('/drivers',userPost)
-//get teams
-
+//  elimiar
  router.delete('/drivers/:idDriver',deleteUser )
-
+// actualizar
  router.put('/drivers/',putUser )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router;
 

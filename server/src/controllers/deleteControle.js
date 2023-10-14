@@ -2,7 +2,7 @@
 const { Driver } = require('../db')
 
 
-
+// solo es alimar por base de  datos 
 
 const delUser = async (id) => {
   console.log(typeof id)

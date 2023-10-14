@@ -6,7 +6,7 @@ const { Op } = require("sequelize");
 
 //  PETICION A LA BASE DE DATOS  LOS 15 
 const buscarBD = async (name) => {
-
+ //  convierto  en  miniscla  y  solo la primera letras en mayuscula 
    const nombresConverido =
       name.toUpperCase().charAt(0) + name.slice(1).toLowerCase();
 
@@ -26,7 +26,7 @@ const buscarBD = async (name) => {
 
 
 
-
+ //  que me traiga  los  15 de  la base de datos 
    if (buscadorDeName.length >= 15) {
       return buscadorDeName
    }
@@ -40,7 +40,7 @@ const buscarBD = async (name) => {
 
 
 
-
+  //  restructuro la  infomacion
    const NewDataa = dataaa.map((elem) => ({
       id: elem.id,
       forename: elem.name.forename,
@@ -57,7 +57,7 @@ const buscarBD = async (name) => {
 
    const filtrado = NewDataa.filter((driver) => driver.forename.toLowerCase() === name.toLowerCase())
 
-
+  // aqui le digo que me complete con la del api sis que hay  
    const completado = 15 - buscadorDeName.length
    const lites15 = filtrado.length > 0 ? filtrado.slice(0, completado) : []
 
