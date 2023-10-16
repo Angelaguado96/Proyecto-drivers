@@ -11,7 +11,7 @@ import { Routes, Route } from 'react-router-dom'
 import NavBar from './NavBarr/NavBar'
 import { useLocation } from 'react-router-dom'
 import axios from 'axios' 
-axios.defaults .baseURL='http://localhost:3002/';
+axios.defaults.baseURL='http://localhost:3002/';
 
 
 
